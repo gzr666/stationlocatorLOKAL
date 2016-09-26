@@ -1,159 +1,125 @@
-#!/bin/env node
-//  OpenShift sample Node application
 var express = require('express');
-var fs      = require('fs');
+var mongoose = require("mongoose");
+var bodyParser = require("body-parser");
+var methodOverride = require('method-override');
+var morgan = require('morgan');
+var restful = require('node-restful');
+var favicon = require('serve-favicon');
 
 
-/**
- *  Define the sample application.
- */
-var SampleApp = function() {
-
-    //  Scope.
-    var self = this;
+var Stanica = require("./models/stanica");
+var API_URL = "http://stationlocator-gzr.rhcloud.com/";
 
 
-    /*  ================================================================  */
-    /*  Helper functions.                                                 */
-    /*  ================================================================  */
+var app = express();
+app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/img/favicon.ico'));
 
-    /**
-     *  Set up server IP address and port # using env variables/defaults.
-     */
-    self.setupVariables = function() {
-        //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-
-        if (typeof self.ipaddress === "undefined") {
-            //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
-            //  allows us to run/test the app locally.
-            console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
-            self.ipaddress = "127.0.0.1";
-        };
-    };
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.json({type:'application/vnd.api+json'}));
+app.use(methodOverride());
+app.set('port', process.env.PORT || 3000);
 
 
-    /**
-     *  Populate the cache.
-     */
-    self.populateCache = function() {
-        if (typeof self.zcache === "undefined") {
-            self.zcache = { 'index.html': '' };
-        }
+//openshift or local
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000; 
 
-        //  Local cache for static content.
-        self.zcache['index.html'] = fs.readFileSync('./index.html');
-    };
+//mongo connectionstring
+//mongodb configuration
+var mongoHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
+var mongoPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017;
+var mongoUser = "admin"; //mongodb username
+var mongoPass = "Buz-S9gtgMTm"; //mongodb password
+var mongoDb   = "stationlocator"; //mongodb database name
 
+var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + mongoHost + ':' + mongoPort +  '/' + mongoDb;
 
-    /**
-     *  Retrieve entry (content) from cache.
-     *  @param {string} key  Key identifying content to retrieve from cache.
-     */
-    self.cache_get = function(key) { return self.zcache[key]; };
-
-
-    /**
-     *  terminator === the termination handler
-     *  Terminate server on receipt of the specified signal.
-     *  @param {string} sig  Signal to terminate on.
-     */
-    self.terminator = function(sig){
-        if (typeof sig === "string") {
-           console.log('%s: Received %s - terminating sample app ...',
-                       Date(Date.now()), sig);
-           process.exit(1);
-        }
-        console.log('%s: Node server stopped.', Date(Date.now()) );
-    };
-
-
-    /**
-     *  Setup termination handlers (for exit and a list of signals).
-     */
-    self.setupTerminationHandlers = function(){
-        //  Process on exit and signals.
-        process.on('exit', function() { self.terminator(); });
-
-        // Removed 'SIGPIPE' from the list - bugz 852598.
-        ['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT',
-         'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'
-        ].forEach(function(element, index, array) {
-            process.on(element, function() { self.terminator(element); });
-        });
-    };
-
-
-    /*  ================================================================  */
-    /*  App server functions (main app logic here).                       */
-    /*  ================================================================  */
-
-    /**
-     *  Create the routing table entries + handlers for the application.
-     */
-    self.createRoutes = function() {
-        self.routes = { };
-
-        self.routes['/asciimo'] = function(req, res) {
-            var link = "http://i.imgur.com/kmbjB.png";
-            res.send("<html><body><img src='" + link + "'></body></html>");
-        };
-
-        self.routes['/'] = function(req, res) {
-            res.setHeader('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html') );
-        };
-    };
-
-
-    /**
-     *  Initialize the server (express) and create the routes and register
-     *  the handlers.
-     */
-    self.initializeServer = function() {
-        self.createRoutes();
-        self.app = express.createServer();
-
-        //  Add handlers for the app (from the routes).
-        for (var r in self.routes) {
-            self.app.get(r, self.routes[r]);
-        }
-    };
-
-
-    /**
-     *  Initializes the sample application.
-     */
-    self.initialize = function() {
-        self.setupVariables();
-        self.populateCache();
-        self.setupTerminationHandlers();
-
-        // Create the express server and routes.
-        self.initializeServer();
-    };
-
-
-    /**
-     *  Start the server (starts up the sample application).
-     */
-    self.start = function() {
-        //  Start the app on the specific interface (and port).
-        self.app.listen(self.port, self.ipaddress, function() {
-            console.log('%s: Node server started on %s:%d ...',
-                        Date(Date.now() ), self.ipaddress, self.port);
-        });
-    };
-
-};   /*  Sample Application.  */
+if (typeof process.env.OPENSHIFT_MONGODB_DB_HOST === "undefined") {
+    
+    mongoString = "mongodb://localhost/stationlocator";
+  };
 
 
 
-/**
- *  main():  Main code.
- */
-var zapp = new SampleApp();
-zapp.initialize();
-zapp.start();
 
+//mongo connection
+mongoose.connect(mongoString);
+var db = mongoose.connection;
+db.on("error",function(error){
+console.log(error);
+});
+
+db.once("open",function(){
+console.log("success");
+
+});
+
+
+//node-restful resources
+var stanicaResource = restful.model("resource",Stanica.shema)
+.methods(["get","post","put","delete"]);
+stanicaResource.register(app,"/api/v2/stanice");
+
+
+
+app.get('/', function(req, res){
+res.type('text/html');
+res.sendFile("/index.html");
+});
+
+app.get("/api/stanice",function(req,res){
+
+Stanica.model.find({},function(err,data){
+
+console.log(data);
+res.status(200).json({data:data});
+
+});
+
+
+
+	
+
+});
+
+
+app.get("/api/stanice/:vrstaid",function(req,res){
+
+Stanica.model.find({Vrsta:req.params.vrstaid},function(err,data){
+console.log(req.params.vrstaid);
+
+res.status(200).json({data:data});
+
+});
+
+
+
+	
+
+});
+
+
+
+
+
+
+// custom 404 page
+app.use(function(req, res){
+res.type('text/plain');
+res.status(404);
+res.send('404 - Not Found');
+});
+// custom 500 page
+app.use(function(err, req, res, next){
+console.error(err.stack);
+res.type('text/plain');
+res.status(500);
+res.send('500 - Server Error');
+});
+app.listen(app.get('port'), function(){
+
+
+
+ });

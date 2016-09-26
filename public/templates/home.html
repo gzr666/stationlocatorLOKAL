@@ -1,0 +1,112 @@
+
+<!-- <div class="row">
+	<div class="col-md-12 col-xs-12">
+				     <button class="btn btn-large btn-primary btn-block" ng-click="getGeoData()" ><h2>Get me Location....</h2></button>
+
+
+				     
+
+					
+  </div>
+  </div> -->
+
+  <div class="row">
+<div class="col-md-12 col-xs-12">
+
+
+
+  <div class="btn-group dropdownsirok">
+    <button  class="btn btn-large btn-primary btn-block" dropdown-toggle data-toggle="dropdown" >
+      <h2>Tip Objekta</h2>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdownsirok">
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block" ng-click="getGeoDataByType(1)"><h2>VN</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(2)" ><h2>SN</h2></button></li>
+      <li><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(3)"><h2>KRO</h2></button></li>
+      
+    </ul>
+  </div>
+
+ </div>
+  </div>
+
+
+
+	
+
+
+
+ 
+
+<div class="row">
+	<div class="col-md-12 col-xs-12">
+				    
+	<!-- <input type="text" ng-model="imeStanice" class="form-control dropdownsirok2" placeholder="Pretrazi stanice..."> -->
+
+	<div class="form-group">
+		    
+		    <input class="form-control input-lg inputmargina" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice">
+  </div>
+
+	<div class="table-responsive">
+	<table class="table table-striped table-responsive table-bordered table-responsive">
+	
+
+	<thead>
+
+	<th class="text-center">Organizacija</th>
+	<th class="text-center">Naziv</th>
+	<!-- <th class="text-center">Broj</th>
+	<th class="text-center">Vrsta</th> -->
+	<th class="text-center">Prikazi na mapi</th>
+
+	</thead>
+
+	<tbody>
+
+	<tr ng-repeat="stanica in stanice | filter:imeStanice">
+	<!-- <tr dir-paginate="stanica in stanice | itemsPerPage: 10 | filter:imeStanice"> -->
+
+			<td>
+				<span class="pull-right">{{stanica.Organizacija}}</span>
+			</td>
+
+			<td>
+				<span class="pull-right">{{stanica.naziv}}</span>
+			</td>
+
+			<!-- <td>
+				{{stanica.broj}}
+			</td>
+			<td>
+				{{stanica.Vrsta}}
+			</td> -->
+			<td>
+				<a href="https://maps.google.com/maps?daddr={{stanica.Lat}},{{stanica.Long}}" class="btn btn-info btn-large btn-block">Google Mape</a>
+			</td>
+
+	</tr>
+
+	</tbody>
+
+	</table>
+	</div>
+	<div class="table-responsive">
+
+	<!-- <div class="container text-center">
+
+	<dir-pagination-controls></dir-pagination-controls>
+	</div> -->
+
+
+	</div>
+
+	
+
+
+
+</div>    
+
+
+

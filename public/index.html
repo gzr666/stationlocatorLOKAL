@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GeoLocator</title>
+
+		<!-- Bootstrap CSS -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+		<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="./css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+		<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+
+		<div class="container">
+
+				<div class="row ">
+
+				<div class="col-md-12 col-xs-12">
+
+					<div class="container">
+					<img src="img/logo3.png" class="img-responsive img-thumbnail" alt="HEP"/> 
+					</div>
+				     <h1 class="text-center XXX">Geo Locator</h1>
+				</div>
+
+
+				      
+				 </div>   
+				 
+				    
+
+				    <!-- <div class="row">
+
+				    		<div class="col-md-12  zz">
+				     <img class="img-responsive img-thumbnail  yy center-block" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSMVXY5YDdnh1UPZhOmoil91IkgoqEDoDZEJl362RKB6rScoy0aTA" alt="test">
+				     </div>
+				     </div> -->
+				    
+			    
+
+
+
+              <!-- <div class="row">
+              		<div class="col-md-12 ">
+              		<div class="text-center">
+				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
+				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
+				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
+				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
+				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
+				</div>
+				 </div>
+			 </div> -->
+
+			 <div class="container" ui-view>
+						
+			</div>
+				 
+
+
+				<!-- <div class="row">
+						<div class="col-md-12 col-xs-12 zz">
+				     	<div id="mapyy">
+				     	</div>
+				     </div>
+				 </div>  -->
+
+
+		</div>
+
+
+			 
+
+
+
+		
+
+		
+
+
+		<!-- jQuery -->
+		<script src="components/jquery/dist/jquery.js"></script>
+
+		<!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
+
+		<script src="components/bootstrap/dist/js/bootstrap.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+ 		
+ 		<script src="components/angular/angular.js"></script>
+ 		<script src="components/gmaps/gmaps.js"></script>
+ 		<script src="components/angular-ui-router/release/angular-ui-router.js"></script>
+ 		<script src="app/aplication.js"></script>
+ 		<script src="controllers/HomeController.js"></script>
+ 		<script src="services/geoService.js"></script>
+ 		<script src="components/angularUtils-pagination/dirPagination.js"></script>
+
+
+ 		<script >
+ 			
+ 				var map;
+$(document).ready(function(){
+      /*map = new GMaps({
+        el: '#map',
+        lat: 0,
+        lng: 0,
+        zoomControl : true,
+        zoomControlOpt: {
+            style : 'SMALL',
+            position: 'TOP_LEFT'
+        },
+        panControl : false,
+        streetViewControl : false,
+        mapTypeControl: false,
+        overviewMapControl: false
+      });
+
+// Define user location
+      GMaps.geolocate({
+          success: function(position) {
+            map.setCenter(position.coords.latitude, position.coords.longitude);
+
+
+        // Creating marker of user location
+              map.addMarker({
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude,
+                  title: 'Lima',
+                  click: function(e) {
+                    alert('You clicked in this marker');
+                  },
+                  infoWindow: {
+                      content: '<p>You are here!</p>'
+                    }
+            });
+          },
+          error: function(error) {
+            alert('Geolocation failed: '+error.message);
+          },
+          not_supported: function() {
+            alert("Your browser does not support geolocation");
+          }
+      });*/
+
+
+
+      /*navigator.geolocation.getCurrentPosition(function(position) {
+  					alert(position.coords.latitude  + "----" + position.coords.longitude);
+		});*/
+
+}); 
+
+
+ 		</script>
+
+	</body>
+</html>
