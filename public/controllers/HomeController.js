@@ -32,7 +32,7 @@
 			{
 				$scope.stanice = [];
 				$scope.loader = true;
-				alert(location.hostname);
+				
 
 				geoService.geoDataByType(id).then(function(data){
 
