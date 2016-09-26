@@ -118,7 +118,7 @@ res.type('text/plain');
 res.status(500);
 res.send('500 - Server Error');
 });
-app.listen(app.get('port',ipaddress), function(){
+app.listen(port,ipaddress), function(){
 
 
 
