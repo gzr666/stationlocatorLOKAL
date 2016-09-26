@@ -7,14 +7,17 @@
 						$scope.stanice = [];
 
 
+
 			 $scope.getGeoData = function()
 			{
 
+				
 				geoService.geoData().then(function(data){
 
 					
 					console.log(data.data);
 					$scope.stanice = data.data;
+					
 
 				},function(error){
 
@@ -28,12 +31,16 @@
 			 $scope.getGeoDataByType = function(id)
 			{
 				$scope.stanice = [];
+				$scope.loader = true;
+				alert(location.hostname);
 
 				geoService.geoDataByType(id).then(function(data){
 
 					
-					console.log(data.data);
+					
 					$scope.stanice = data.data;
+
+					$scope.loader = false;
 
 				},function(error){
 
