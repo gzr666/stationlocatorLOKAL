@@ -22,7 +22,7 @@ angular.module("myApp")
 	{
 		var q = $q.defer();
 
-		$http.get("http://stationlocator-gzr.rhcloud.com/api/stanice").then(function(data){
+		$http.get(API_URL).then(function(data){
 
 
 

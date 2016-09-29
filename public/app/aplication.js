@@ -1,6 +1,6 @@
 (function(){
 
-var myApp = angular.module("myApp",["ui.router",'angularUtils.directives.dirPagination']);
+var myApp = angular.module("myApp",["ui.router",'angularUtils.directives.dirPagination',"angular-storage","underscore"]);
 
 myApp.config(function($stateProvider,$urlRouterProvider){
 
@@ -18,6 +18,35 @@ myApp.config(function($stateProvider,$urlRouterProvider){
 
 
 });
+
+myApp.run(function(store,geoService,$rootScope){
+
+		$rootScope.loadingData = false;
+
+	if(store.get("geoData") == null)
+	{
+		
+	geoService.geoData().then(function(data){
+
+					$rootScope.loadingData = true;
+					store.set("geoData",data.data);
+					
+
+					$rootScope.loadingData = false;
+				
+					
+
+				},function(error){
+
+					
+
+				});
+	}
+
+
+
+});
+
 
 
 

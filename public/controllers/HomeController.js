@@ -1,7 +1,7 @@
 (function(){
 
 		angular.module("myApp")
-		.controller("HomeController",function($scope,geoService){
+		.controller("HomeController",function($scope,geoService,store,_){
 
 						$scope.name ="home";
 						$scope.stanice = [];
@@ -15,13 +15,13 @@
 				geoService.geoData().then(function(data){
 
 					
-					console.log(data.data);
+					
 					$scope.stanice = data.data;
 					
 
 				},function(error){
 
-					console.log(error);
+					
 
 				});
 
@@ -34,22 +34,49 @@
 				$scope.loader = true;
 				
 
-				geoService.geoDataByType(id).then(function(data){
+				if(store.get("geoData") != null)
+				{
 
-					
-					
-					$scope.stanice = data.data;
+				var mydata = store.get("geoData");
+				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
+				
+				
+				angular.copy(test,$scope.stanice);
+				$scope.loader = false;
 
-					$scope.loader = false;
+				}
 
-				},function(error){
 
-					console.log(error);
+				
+				
+				else
+				{
+				
 
-				});
+						geoService.geoDataByType(id).then(function(data){
 
-			};
+							//store.set("")
 
+							angular.copy(data.data,$scope.stanice);
+							//$scope.stanice = data.data;
+
+							
+
+						},function(error){
+
+							console.log(error);
+
+						}).then(function(){
+							$scope.loader = false;
+						});
+
+					};
+
+				}
+
+
+
+			
 
 		
 		})

@@ -46,7 +46,7 @@
 
 	<div class="form-group">
 		    
-		    <input class="form-control input-lg inputmargina" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice">
+		    <input class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice" autofocus="true">
   </div>
 
 	<div class="table-responsive">
@@ -112,11 +112,11 @@
 </div>
 
 
-<div class="row ">
+<div class="row" ng-show="loader">
 
 				<div class="col-md-12 col-xs-12">
 
-					<div class="container text-center" ng-show="loader">
+					<div class="container text-center" >
 					<img src="img/loader.gif" class="img-responsive img-thumbnail center-block" alt="HEP"/> 
 					</div>
 

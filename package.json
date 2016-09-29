@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "test",
   "scripts": {
-     "start": "node server.js"
+    "start": "node server.js"
   },
-"main": "server.js",
+  "main": "server.js",
   "author": "ivan",
   "license": "ISC",
   "dependencies": {
+    "angular-storage": "0.0.15",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",

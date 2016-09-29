@@ -49,6 +49,11 @@
 					<img src="img/logo3.png" class="img-responsive img-thumbnail" alt="HEP"/> 
 					</div>
 				     <h1 class="text-center XXX">Geo Locator</h1>
+
+				     <div ng-show="loadingData">
+				     <img src="img/loader.gif" class="img-responsive img-thumbnail center-block" alt="HEP"/> 
+				     <h1 class="text-center XXX" ng-show="loadingData">Ucitavanje baze</h1>
+				     </div>
 				</div>
 
 
@@ -116,7 +121,8 @@
 		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
 
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
- 		
+ 		<script src="components/lodash/dist/lodash.js"></script>
+ 		<script src="components/underscore/underscore.js"></script>
  		<script src="components/angular/angular.js"></script>
  		<script src="components/gmaps/gmaps.js"></script>
  		<script src="components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -124,6 +130,10 @@
  		<script src="controllers/HomeController.js"></script>
  		<script src="services/geoService.js"></script>
  		<script src="components/angularUtils-pagination/dirPagination.js"></script>
+ 		<script src="components/a0-angular-storage/dist/angular-storage.js"></script>
+ 		<script src="app/underscore.js"></script>
+
+ 		
 
 
  		<script >
