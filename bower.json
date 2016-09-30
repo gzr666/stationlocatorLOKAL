@@ -18,6 +18,7 @@
     "bootstrap": "^3.3.7",
     "a0-angular-storage": "^0.0.15",
     "lodash": "^4.16.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "ng-debounce": "^0.1.7"
   }
 }

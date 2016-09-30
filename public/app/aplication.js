@@ -1,6 +1,6 @@
 (function(){
 
-var myApp = angular.module("myApp",["ui.router",'angularUtils.directives.dirPagination',"angular-storage","underscore"]);
+var myApp = angular.module("myApp",["ui.router",'angularUtils.directives.dirPagination',"angular-storage","underscore","debounce"]);
 
 myApp.config(function($stateProvider,$urlRouterProvider){
 
