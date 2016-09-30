@@ -5,6 +5,56 @@ var methodOverride = require('method-override');
 var morgan = require('morgan');
 var restful = require('node-restful');
 var favicon = require('serve-favicon');
+var c = require('appcache-node');
+
+
+//application cache code
+var cf = c.newCache(
+  [
+
+		"components/bootstrap/dist/css/bootstrap.css",
+		"css/style.css",
+		"img/apple-icon-57x57.png",
+		"img/apple-icon-60x60.png",
+		"img/apple-icon-72x72.png",
+		"img/apple-icon-76x76.png",
+		"img/apple-icon-114x114.png",
+		"img/apple-icon-120x120.png",
+		"img/apple-icon-144x144.png",
+		"img/apple-icon-152x152.png",
+		"img/apple-icon-180x180.png",
+		"img/android-icon-192x192.png",
+		"img/favicon-32x32.png",
+		"img/favicon-96x96.png",
+		"img/favicon-16x16.png",
+		"img/manifest.json",
+	    "components/jquery/dist/jquery.js",
+		"components/bootstrap/dist/js/bootstrap.js",
+	    "/app/aplication.js",
+	    "/app/underscore.js",
+	    "components/lodash/dist/lodash.js",
+	 	"components/underscore/underscore.js",
+	 	"components/angular/angular.js",
+	 	"components/gmaps/gmaps.js",
+	 	"components/angular-ui-router/release/angular-ui-router.js",
+	 	"app/aplication.js",
+	 	"controllers/HomeController.js",
+	 	"services/geoService.js",
+	 	"components/angularUtils-pagination/dirPagination.js",
+	 	"components/a0-angular-storage/dist/angular-storage.js",
+	 	"app/underscore.js",
+	 	"components/ng-debounce/angular-debounce.js",
+	 	"templates/home.html",
+	 	"img/loader.gif",
+	 	"img/loader2.gif",
+	 	"img/logo1.png",
+	 	"img/logo2.png",
+	 	"img/logo3.png"
+
+    
+  ]
+);
+
 
 
 var Stanica = require("./models/stanica");
@@ -63,11 +113,19 @@ var stanicaResource = restful.model("resource",Stanica.shema)
 stanicaResource.register(app,"/api/v2/stanice");
 
 
+//cache requests
+app.all('/app.cache', function(req, res){
+    res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
+    res.end(cf);
+})
+
 
 app.get('/', function(req, res){
 res.type('text/html');
 res.sendFile("/index.html");
 });
+
+
 
 app.get("/api/stanice",function(req,res){
 
@@ -99,6 +157,10 @@ res.status(200).json({data:data});
 	
 
 });
+
+
+
+
 
 
 
