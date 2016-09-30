@@ -1,7 +1,7 @@
 (function(){
 
 		angular.module("myApp")
-		.controller("HomeController",function($scope,geoService,store,_){
+		.controller("HomeController",function($scope,geoService,store,_,$rootScope){
 
 						$scope.name ="home";
 						$scope.stanice = [];
@@ -31,18 +31,23 @@
 			 $scope.getGeoDataByType = function(id)
 			{
 				$scope.stanice = [];
-				$scope.loader = true;
-				
+				//$scope.loader = true;
+				$rootScope.loadingData = false;
 
 				if(store.get("geoData") != null)
 				{
+					$rootScope.loadingData = true;
+					alert("2");
+
 
 				var mydata = store.get("geoData");
 				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
 				
 				
 				angular.copy(test,$scope.stanice);
-				$scope.loader = false;
+				//$scope.loader = false;
+				$rootScope.loadingData = false;
+
 
 				}
 
@@ -52,6 +57,8 @@
 				else
 				{
 				
+
+					
 
 						geoService.geoDataByType(id).then(function(data){
 
