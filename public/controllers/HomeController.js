@@ -37,11 +37,12 @@
 				if(store.get("geoData") != null)
 				{
 					$rootScope.loadingData = true;
-					alert("2");
+					
 
 
 				var mydata = store.get("geoData");
 				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
+				
 				
 				
 				angular.copy(test,$scope.stanice);
@@ -64,6 +65,7 @@
 
 							//store.set("")
 
+							console.log(data.data);
 							angular.copy(data.data,$scope.stanice);
 							//$scope.stanice = data.data;
 
@@ -71,7 +73,7 @@
 
 						},function(error){
 
-							console.log(error);
+							
 
 						}).then(function(){
 							$scope.loader = false;

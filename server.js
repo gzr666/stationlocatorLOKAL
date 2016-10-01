@@ -5,6 +5,7 @@ var methodOverride = require('method-override');
 var morgan = require('morgan');
 var restful = require('node-restful');
 var favicon = require('serve-favicon');
+var cors = require('cors');
 var c = require('appcache-node');
 
 
@@ -62,13 +63,14 @@ var API_URL = "http://stationlocator-gzr.rhcloud.com/";
 
 
 var app = express();
+app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(__dirname + '/public/img/favicon.ico'));
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
-app.use(methodOverride());
+app.use(methodOverride("X-HTTP-Method-Override"));
 app.set('port', process.env.PORT || 3000);
 
 

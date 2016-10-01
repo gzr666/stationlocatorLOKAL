@@ -67,8 +67,8 @@
 
 	<tbody>
 
-	<tr ng-repeat="stanica in stanice | filter:imeStanice">
-	<!-- <tr dir-paginate="stanica in stanice | itemsPerPage: 10 | filter:imeStanice"> -->
+	<!--<tr ng-repeat="stanica in stanice | filter:imeStanice">  -->
+	 <tr dir-paginate="stanica in stanice | itemsPerPage: 10 | filter:imeStanice"> 
 
 			<td>
 				<span class="pull-right">{{stanica.Organizacija}}</span>
@@ -96,10 +96,10 @@
 	</div>
 	<div class="table-responsive">
 
-	<!-- <div class="container text-center">
+	 <div class="container text-center">
 
 	<dir-pagination-controls></dir-pagination-controls>
-	</div> -->
+	</div> 
 
 
 	</div>
