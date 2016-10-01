@@ -5,7 +5,8 @@
 
 						$scope.name ="home";
 						$scope.stanice = [];
-
+						
+						
 
 
 			 $scope.getGeoData = function()
@@ -32,9 +33,9 @@
 			{
 				$scope.stanice = [];
 				//$scope.loader = true;
-				$rootScope.loadingData = false;
+				
 
-				if(store.get("geoData") != null)
+				if(store.get("geoData") !== null)
 				{
 					$rootScope.loadingData = true;
 					
@@ -46,7 +47,8 @@
 				
 				
 				angular.copy(test,$scope.stanice);
-				//$scope.loader = false;
+				$scope.imeStanice = "";
+				
 				$rootScope.loadingData = false;
 
 
@@ -58,16 +60,17 @@
 				else
 				{
 				
-
+					$rootScope.loadingData = true;
 					
 
 						geoService.geoDataByType(id).then(function(data){
 
 							//store.set("")
 
-							console.log(data.data);
+							
 							angular.copy(data.data,$scope.stanice);
 							//$scope.stanice = data.data;
+
 
 							
 
@@ -76,7 +79,8 @@
 							
 
 						}).then(function(){
-							$scope.loader = false;
+							
+							$rootScope.loadingData = false;
 						});
 
 					};

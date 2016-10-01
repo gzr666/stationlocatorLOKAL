@@ -23,7 +23,9 @@ myApp.run(function(store,geoService,$rootScope){
 
 		$rootScope.loadingData = false;
 
-	if(store.get("geoData") == null)
+		
+
+	if(store.get("geoData")===null)
 	{
 		
 	geoService.geoData().then(function(data){
@@ -38,7 +40,7 @@ myApp.run(function(store,geoService,$rootScope){
 
 				},function(error){
 
-					
+					console.log(error);
 
 				});
 	}
