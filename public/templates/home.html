@@ -9,6 +9,8 @@
 					
   </div>
   </div> -->
+  <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-center'}"></toaster-container>
+
 
   <div class="row">
 <div class="col-md-12 col-xs-12">
@@ -47,11 +49,11 @@
 	<div class="form-group">
 		    
 <form>
-	<input class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice" autofocus="true" debounce="1500" autocomplete="off">
+	<input class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice"  autofocus="true" debounce="1500" autocomplete="off">
 </form>
   </div>
 
-	<div class="table-responsive">
+	 <div class="table-responsive">
 	<table class="table table-striped table-responsive table-bordered table-responsive">
 	
 
@@ -60,12 +62,12 @@
 	<th class="text-center">Organizacija</th>
 	<th class="text-center">Naziv</th>
 	<!-- <th class="text-center">Broj</th>
-	<th class="text-center">Vrsta</th> -->
+	<th class="text-center">Vrsta</th>-->
 	<th class="text-center">Prikazi na mapi</th>
 
 	</thead>
 
-	<tbody>
+	<tbody >
 
 	<tr ng-repeat="stanica in stanice | filter:imeStanice track by stanica._id">  
 	 <!--<tr dir-paginate="stanica in stanice | itemsPerPage: 10 | filter:imeStanice"> -->
@@ -93,7 +95,7 @@
 	</tbody>
 
 	</table>
-	</div>
+	</div> 
 	<!--<div class="table-responsive">
 
 	 <div class="container text-center">
@@ -103,6 +105,8 @@
 
 
 	</div>-->
+
+	
 
 
 

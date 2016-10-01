@@ -1,12 +1,30 @@
 (function(){
 
+	
+
 		angular.module("myApp")
 		.controller("HomeController",function($scope,geoService,store,_,$rootScope){
 
 						$scope.name ="home";
 						$scope.stanice = [];
 						
+
+
 						
+						
+/*
+			 $scope.pop = function(){
+
+					toaster.pop('success', "title", "text");
+
+
+			}	*/	
+
+			
+			
+
+
+				
 
 
 			 $scope.getGeoData = function()
@@ -29,27 +47,35 @@
 			};
 
 
+			
+
+
 			 $scope.getGeoDataByType = function(id)
 			{
-				$scope.stanice = [];
+				//$scope.pop();
+				
 				//$scope.loader = true;
 				
 
 				if(store.get("geoData") !== null)
 				{
-					$rootScope.loadingData = true;
 					
-
+					
+				$scope.stanice = [];
 
 				var mydata = store.get("geoData");
 				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
-				
-				
-				
 				angular.copy(test,$scope.stanice);
+				
+				
+				
+				
+				
+				//angular.copy(test,$scope.stanice);
+				//angular.copy($scope)
 				$scope.imeStanice = "";
 				
-				$rootScope.loadingData = false;
+				
 
 
 				}
@@ -60,7 +86,7 @@
 				else
 				{
 				
-					$rootScope.loadingData = true;
+				
 					
 
 						geoService.geoDataByType(id).then(function(data){
@@ -80,7 +106,7 @@
 
 						}).then(function(){
 							
-							$rootScope.loadingData = false;
+							
 						});
 
 					};
@@ -92,7 +118,10 @@
 			
 
 		
-		})
+		});
+
+
+
 
 
 
