@@ -19,14 +19,19 @@ myApp.config(function($stateProvider,$urlRouterProvider){
 
 });
 
-myApp.run(function(store,geoService,$rootScope){
+myApp.run(function(store,geoService,$rootScope,$timeout){
 
-		$rootScope.loadingData = false;
+		function callshit()
+		{
+			$rootScope.loadingData = false;
+		}
+		$rootScope.loadingData = true;
 
 		geoService.wakeMyApp().then(function(data){
 
 			
 		});
+		$timeout(callshit,3000);
 
 		
 
@@ -35,11 +40,11 @@ myApp.run(function(store,geoService,$rootScope){
 		
 	geoService.geoData().then(function(data){
 
-					$rootScope.loadingData = true;
+					//$rootScope.loadingData = true;
 					store.set("geoData",data.data);
 					
 
-					$rootScope.loadingData = false;
+					//$rootScope.loadingData = false;
 				
 					
 
