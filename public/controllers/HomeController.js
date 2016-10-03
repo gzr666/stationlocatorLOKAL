@@ -7,6 +7,8 @@
 
 						$scope.name ="home";
 						$scope.stanice = [];
+						$scope.disableButton = true;
+						$scope.remDiv = true;
 						
 
 
@@ -21,7 +23,31 @@
 			}	*/	
 
 			
-			
+			var limitStep = 150;
+			$scope.limit = limitStep;
+			$scope.incrementLimit = function() {
+    		$scope.limit += limitStep;
+			if($scope.limit > $scope.stanice.length)
+			{
+				$scope.disableButton = true;
+			}
+
+
+			};
+
+			$scope.removeDiv = function()
+			{
+				
+				if($scope.imeStanice=="")
+				{
+					$scope.remDiv = true;
+				}
+				else{
+
+				$scope.remDiv = false;
+				}
+			}
+
 
 
 				
@@ -55,7 +81,8 @@
 				//$scope.pop();
 				
 				//$scope.loader = true;
-				
+				$scope.limit = limitStep;
+				$scope.remDiv = true;
 
 				if(store.get("geoData") !== null)
 				{
@@ -66,6 +93,16 @@
 				var mydata = store.get("geoData");
 				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
 				angular.copy(test,$scope.stanice);
+
+				if($scope.limit > $scope.stanice.length)
+					{
+						$scope.disableButton = true;
+					}
+					else{
+						$scope.disableButton = false;
+					}
+
+				
 				
 				
 				

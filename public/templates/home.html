@@ -49,7 +49,7 @@
 	<div class="form-group">
 		    
 <form>
-	<input class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice"  autofocus="true" debounce="1500" autocomplete="off">
+	<input class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretrazi stanice..." ng-model="imeStanice" ng-change="removeDiv()"  autofocus="true" debounce="1500" autocomplete="off">
 </form>
   </div>
 
@@ -69,7 +69,7 @@
 
 	<tbody >
 
-	<tr ng-repeat="stanica in stanice | filter:imeStanice | limitTo:150 track by stanica._id">  
+	<tr ng-repeat="stanica in stanice | filter:imeStanice  | limitTo:limit track by stanica._id">  
 	 <!--<tr dir-paginate="stanica in stanice | itemsPerPage: 10 | filter:imeStanice"> -->
 
 			<td>
@@ -95,6 +95,14 @@
 	</tbody>
 
 	</table>
+
+		<div class="containers text-center" ng-show="stanice.length > 0 && remDiv">
+
+		<button class="btn btn-large btn-info btn-block" ng-click="incrementLimit()" ng-disabled="disableButton">Ucitaj jos</button>
+
+	</div>
+
+
 	</div> 
 	<!--<div class="table-responsive">
 
@@ -105,6 +113,7 @@
 
 
 	</div>-->
+	
 
 	
 

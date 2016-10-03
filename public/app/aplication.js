@@ -23,6 +23,11 @@ myApp.run(function(store,geoService,$rootScope){
 
 		$rootScope.loadingData = false;
 
+		geoService.wakeMyApp().then(function(data){
+
+			
+		});
+
 		
 
 	if(store.get("geoData")===null)

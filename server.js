@@ -123,6 +123,7 @@ app.all('/app.cache', function(req, res){
 
 
 app.get('/', function(req, res){
+	
 res.type('text/html');
 res.sendFile("/index.html");
 });

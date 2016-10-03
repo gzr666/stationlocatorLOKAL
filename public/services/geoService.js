@@ -16,7 +16,21 @@ angular.module("myApp")
 	}
 
 
+	var wakeUp = function()
+	{
+		var q = $q.defer();
+		$http.get("http://stationlocator-gzr.rhcloud.com/api/v2/stanice?_id=57e64f915627aa427f1e0482")
+		.then(function(data){
 
+				q.resolve(data);
+
+		},function(error){
+
+				q.reject(error);
+		});
+			return q.promise;
+
+	}
 
 	var getGeoData = function()
 	{
@@ -65,7 +79,9 @@ angular.module("myApp")
 return {
 
 	geoData:getGeoData,
-	geoDataByType:getGeoDataByType
+	geoDataByType:getGeoDataByType,
+	wakeMyApp:wakeUp
+
 
 }
 
