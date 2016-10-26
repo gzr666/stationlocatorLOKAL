@@ -31,7 +31,7 @@ myApp.run(function(store,geoService,$rootScope,$timeout){
 
 			
 		});
-		$timeout(callshit,6000);
+		$timeout(callshit,5000);
 
 		
 
