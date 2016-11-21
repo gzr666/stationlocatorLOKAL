@@ -15,6 +15,7 @@ var cf = c.newCache(
 
 		"components/bootstrap/dist/css/bootstrap.css",
 		"css/style.css",
+		"css/footer.css",
 		"img/apple-icon-57x57.png",
 		"img/apple-icon-60x60.png",
 		"img/apple-icon-72x72.png",
@@ -28,6 +29,7 @@ var cf = c.newCache(
 		"img/favicon-32x32.png",
 		"img/favicon-96x96.png",
 		"img/favicon-16x16.png",
+		"img/ods-logo.svg",
 		"img/manifest.json",
 	    "components/jquery/dist/jquery.js",
 		"components/bootstrap/dist/js/bootstrap.js",

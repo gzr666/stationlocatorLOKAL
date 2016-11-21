@@ -1,4 +1,4 @@
-.container
+.containerxx
 {
 	
 	padding:20px;
@@ -6,6 +6,12 @@
 
 
 
+}
+body
+{
+	border:5px solid;
+	border-color: rgb(6,152,255);
+	height:100%
 }
 .XXX
 {
@@ -58,12 +64,16 @@
 	
 	margin-top:10px;
 	margin-bottom:10px;
+	
 }
 .table-responsive
 {
     overflow-x: auto;
 }
-
+.makemargin2
+{
+	padding:0 auto;
+}
 
 
 
@@ -198,4 +208,21 @@ only screen and (max-width: 760px),
 {
 	height:80px;
 	font-size: 25px;
+}
+.headimg
+{
+
+	width:100%;
+	height:150px;
+
+
+
+}
+.maindiv
+{
+	margin-top: 5px;
+	
+	
+
+
 }
