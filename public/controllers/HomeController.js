@@ -9,6 +9,7 @@
 						$scope.stanice = [];
 						$scope.disableButton = true;
 						$scope.remDiv = true;
+						$scope.showPostr = false;
 						
 
 
@@ -79,6 +80,27 @@
 			 $scope.getGeoDataByType = function(id)
 			{
 				//$scope.pop();
+
+				if(id==1)
+				{
+					$scope.tipPostr = "VN";
+					$scope.showPostr = true;
+				}
+
+				else if(id==2)
+				{
+					$scope.tipPostr = "SN";
+					$scope.showPostr = true;
+				}
+				else if(id==3)
+				{
+					$scope.tipPostr = "KRO";
+					$scope.showPostr = true;
+				}
+				else
+				{
+					$scope.showPostr = false;
+				}
 				
 				//$scope.loader = true;
 				$scope.limit = limitStep;

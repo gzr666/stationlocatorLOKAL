@@ -226,3 +226,17 @@ only screen and (max-width: 760px),
 
 
 }
+
+.well{
+background-color: #286090!important;
+}
+
+.mycolor
+{
+	color:white;
+}
+.wellm
+{
+	border-radius:10px;
+}
+
