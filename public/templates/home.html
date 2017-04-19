@@ -53,7 +53,7 @@
 	<div class="form-group">
 		    
 <form>
-	<input class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretraži postrojenja (unesi barem dva slova)..." ng-model="imeStanice" ng-change="removeDiv()"  autofocus="true" debounce="1500" autocomplete="off">
+	<input ng-disabled="!showPostr" class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretraži (unesi barem dva slova)..." ng-model="imeStanice" ng-change="removeDiv()"  autofocus="true" debounce="1500" autocomplete="off">
 </form>
   </div>
 
@@ -102,7 +102,7 @@
 
 		<div class="containers text-center" ng-show="stanice.length > 0 && remDiv">
 
-		<button class="btn btn-large btn-info btn-block" ng-click="incrementLimit()" ng-disabled="disableButton">Ucitaj jos</button>
+		<button class="btn btn-large btn-primary btn-block" ng-click="incrementLimit()" ng-disabled="disableButton">Učitaj još postrojenja</button>
 
 	</div>
 

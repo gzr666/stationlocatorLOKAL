@@ -10,6 +10,7 @@
 						$scope.disableButton = true;
 						$scope.remDiv = true;
 						$scope.showPostr = false;
+					
 						
 
 
@@ -24,7 +25,7 @@
 			}	*/	
 
 			
-			var limitStep = 150;
+			var limitStep = 10;
 			$scope.limit = limitStep;
 			$scope.incrementLimit = function() {
     		$scope.limit += limitStep;
