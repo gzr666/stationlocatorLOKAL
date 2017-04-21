@@ -9,15 +9,15 @@
 						$scope.stanice = [];
 						$scope.disableButton = true;
 						$scope.remDiv = true;
-<<<<<<< HEAD
+
 
 
 
 			$scope.VN = "VN";			
-=======
+
 						$scope.showPostr = false;
 					
->>>>>>> 40aeb9c5383360e2647152fe3ef0c315a592c6e6
+
 						
 
 
