@@ -9,10 +9,15 @@
 						$scope.stanice = [];
 						$scope.disableButton = true;
 						$scope.remDiv = true;
+<<<<<<< HEAD
 
 
 
 			$scope.VN = "VN";			
+=======
+						$scope.showPostr = false;
+					
+>>>>>>> 40aeb9c5383360e2647152fe3ef0c315a592c6e6
 						
 
 
@@ -27,7 +32,7 @@
 			}	*/	
 
 			
-			var limitStep = 150;
+			var limitStep = 10;
 			$scope.limit = limitStep;
 			$scope.incrementLimit = function() {
     		$scope.limit += limitStep;
@@ -83,6 +88,27 @@
 			 $scope.getGeoDataByType = function(id)
 			{
 				//$scope.pop();
+
+				if(id==1)
+				{
+					$scope.tipPostr = "VN";
+					$scope.showPostr = true;
+				}
+
+				else if(id==2)
+				{
+					$scope.tipPostr = "SN";
+					$scope.showPostr = true;
+				}
+				else if(id==3)
+				{
+					$scope.tipPostr = "KRO";
+					$scope.showPostr = true;
+				}
+				else
+				{
+					$scope.showPostr = false;
+				}
 				
 				//$scope.loader = true;
 				$scope.limit = limitStep;
