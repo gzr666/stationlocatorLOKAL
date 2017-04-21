@@ -9,6 +9,10 @@
 						$scope.stanice = [];
 						$scope.disableButton = true;
 						$scope.remDiv = true;
+
+
+
+			$scope.VN = "VN";			
 						
 
 
