@@ -4,11 +4,13 @@ var Schema = mongoose.Schema;
 var stanicaSchema = new Schema({
 
 	Organizacija:String,
-	naziv:String,
-	TS:String,
-	broj:String,
-	Long:Number,
-	Lat:Number
+	Naziv:String,
+	Nivo:String,
+	Tip:String,
+	Broj:String,
+	"Long":String,
+	Lat:String,
+	Vrsta:String
 
 
 

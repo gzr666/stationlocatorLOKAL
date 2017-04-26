@@ -1,0 +1,13 @@
+Vrste:
+
+VN - 1
+SN - 2
+KRO -3
+KK  -4 
+RS  - 5
+
+
+postupak:
+
+
+exportiraj iz excela kao unicode text i onda radi csvtojson sa è æ

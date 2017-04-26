@@ -105,6 +105,16 @@
 					$scope.tipPostr = "KRO";
 					$scope.showPostr = true;
 				}
+				else if(id==4)
+				{
+					$scope.tipPostr = "KK";
+					$scope.showPostr = true;
+				}
+				else if(id==5)
+				{
+					$scope.tipPostr = "RS";
+					$scope.showPostr = true;
+				}
 				else
 				{
 					$scope.showPostr = false;
@@ -123,6 +133,8 @@
 				var mydata = store.get("geoData");
 				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
 				angular.copy(test,$scope.stanice);
+
+				console.log(test);
 
 				if($scope.limit > $scope.stanice.length)
 					{

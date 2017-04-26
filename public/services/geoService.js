@@ -19,7 +19,7 @@ angular.module("myApp")
 	var wakeUp = function()
 	{
 		var q = $q.defer();
-		$http.get("http://stationlocator-gzr.rhcloud.com/api/v2/stanice?_id=57e64f915627aa427f1e0482")
+		$http.get("http://stationlocator-gzr.rhcloud.com/api/v2/stanice?_id=59004a0475c103eec4c89228")
 		.then(function(data){
 
 				q.resolve(data);
@@ -63,6 +63,8 @@ angular.module("myApp")
 
 
 				q.resolve(data.data);
+
+				console.log(data.data);
 
 
 		},function(error){

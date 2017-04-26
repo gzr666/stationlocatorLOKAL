@@ -25,6 +25,8 @@
     <ul class="dropdown-menu dropdownsirok">
       <li class="itemMargin"><button class="btn btn-large btn-info btn-block" ng-click="getGeoDataByType(1)"><h2>VN</h2></button></li>
       <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(2)" ><h2>SN</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(4)" ><h2>KK</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(5)" ><h2>RS</h2></button></li>
       <li><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(3)"><h2>KRO</h2></button></li>
       
     </ul>
@@ -68,6 +70,7 @@
 
 	<th class="text-center">Organizacija</th>
 	<th class="text-center">Naziv</th>
+	<th class="text-center">Nivo</th>
 	<!-- <th class="text-center">Broj</th>
 	<th class="text-center">Vrsta</th>-->
 	<th class="text-center">Prikazi na mapi</th>
@@ -83,9 +86,18 @@
 				<span class="pull-right">{{stanica.Organizacija}}</span>
 			</td>
 
+			
+
 			<td>
-				<span class="pull-right">{{stanica.naziv}}</span>
+				<span class="pull-right">{{stanica.Naziv}}</span>
 			</td>
+
+
+			<td>
+				<span class="pull-right">{{stanica.Nivo}} kV</span>
+			</td>
+
+			
 
 			<!-- <td>
 				{{stanica.broj}}
