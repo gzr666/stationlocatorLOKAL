@@ -1,0 +1,35 @@
+ 
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+mongod --dbpath "C:\mongobaza\db"
+
+mongoimport --headerline --type csv \
+    --host $OPENSHIFT_MONGODB_DB_HOST \
+    --port $OPENSHIFT_MONGO_DB_PORT \
+    --db **your db name** \
+    --collection **your collection name** \
+    --username $OPENSHIFT_MONGODB_DB_USERNAME \
+    --password $OPENSHIFT_MONGODB_DB_PASSWORD \
+    --file ~/**your app name**/data/**your csv file name**
+
+
+
+mongoexport -d webmitta -c domain -o domain-bk.json
+
+ssh://57e4b9300c1e6694970000ef@stationlocator-gzr.rhcloud.com/~/git/stationlocator.git/
+
+scp 57e4b9300c1e6694970000ef@stationlocator-gzr.rhcloud.com:app-root/data/test.json 
+
+LOKALNO:
+
+./mongoimport --db testdb --collection koordinate --jsonArray  --file /e/test.json
+
+ili
+
+./mongoimport --db testdb --collection koordinate --type json  --file /e/test.json
+
+
+------------------------------------------------------------------------------------------------------------
+
