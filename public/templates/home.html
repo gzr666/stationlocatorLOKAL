@@ -57,7 +57,11 @@
 <form>
 
 	
-	<input ng-disabled="!showPostr" class="form-control input-lg inputmargina textsearchheight" id="inputlg" type="text" placeholder="Pretraži (unesi barem dva slova)..." ng-model="imeStanice" ng-change="removeDiv()"  autofocus="true" debounce="1500" autocomplete="off">
+	<input ng-disabled="!showPostr" class="form-control input-lg inputmargina textsearchheight hidden-sm hidden-xs" id="inputlg" type="text" placeholder="Pretraži (unesi barem dva slova)..." ng-model="imeStanice" ng-change="removeDiv()"  autofocus="true" debounce="1500" autocomplete="off">
+
+
+	<input ng-disabled="!showPostr" class="form-control input-lg inputmargina textsearchheight hidden-md hidden-lg hidden-xl" id="inputlg" type="text" placeholder="Pretraži..." ng-model="imeStanice" ng-change="removeDiv()"  autofocus="true" debounce="1500" autocomplete="off">
+	
 
 </form>
   </div>
