@@ -61,7 +61,15 @@ var cf = c.newCache(
 
 
 var Stanica = require("./models/stanica");
-var API_URL = "http://stationlocator-gzr.rhcloud.com/";
+
+//OPENSHIFT LINK
+//var API_URL = "http://stationlocator-gzr.rhcloud.com/";
+
+
+//HEROKU LINK
+var API_URL = "https://stationlocator.herokuapp.com/";
+
+
 
 
 var app = express();
@@ -87,8 +95,10 @@ app.set('port', process.env.PORT || 3000);
 
 
 //openshift or local
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3000; 
+/*var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000; */
+
+var port = process.env.PORT;
 
 //mongo connectionstring
 //mongodb configuration open shift
@@ -208,7 +218,13 @@ res.type('text/plain');
 res.status(500);
 res.send('500 - Server Error');
 });
-app.listen(port,ipaddress, function(){
+/*app.listen(port,ipaddress, function(){
+
+
+
+ });
+*/
+ app.listen(port, function(){
 
 
 

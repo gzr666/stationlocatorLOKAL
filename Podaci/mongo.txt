@@ -33,3 +33,9 @@ ili
 
 ------------------------------------------------------------------------------------------------------------
 
+
+HEROKU 
+mongoimport -h ds243055.mlab.com:43055 -d stationlocator -c koordinate -u geezer -p sabbath66 --file koordinate.json 
+
+https://stationlocator.herokuapp.com/
+
