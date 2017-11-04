@@ -3,7 +3,9 @@
 angular.module("myApp")
 .factory("geoService",function($http,$q){
 
-	var localhost = location.hostname;
+
+	// openshift stuff
+	/*var localhost = location.hostname;
 	var API_URL = "NONE"
 
 	if(localhost=="localhost")
@@ -13,13 +15,17 @@ angular.module("myApp")
 	else
 	{
 		API_URL = "http://stationlocator-gzr.rhcloud.com/api/stanice/";
-	}
+	}*/
 
+	var API_URL = "https://stationlocator.herokuapp.com/api/stanice";
 
 	var wakeUp = function()
 	{
 		var q = $q.defer();
-		$http.get("http://stationlocator-gzr.rhcloud.com/api/v2/stanice?_id=59004a0475c103eec4c89228")
+
+		//OPENSHIFT CALL
+		//$http.get("http://stationlocator-gzr.rhcloud.com/api/v2/stanice?_id=59004a0475c103eec4c89228")
+		$http.get("https://stationlocator.herokuapp.com/api/v2/stanice?_id=59004a0475c103eec4c89228")
 		.then(function(data){
 
 				q.resolve(data);
