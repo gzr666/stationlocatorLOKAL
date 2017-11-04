@@ -35,7 +35,14 @@ ili
 
 
 HEROKU 
-mongoimport -h ds243055.mlab.com:43055 -d stationlocator -c koordinate -u geezer -p sabbath66 --file koordinate.json 
+mongoimport -h ds243055.mlab.com:43055 -d stationlocator -c koordinate -u geezer -p sabbath66 --file BAZA.json 
 
+git push heroku master
+heroku logs --tail
 https://stationlocator.herokuapp.com/
+
+
+MONGOLAB:
+
+
 
