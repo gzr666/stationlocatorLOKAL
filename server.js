@@ -91,19 +91,32 @@ var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000; 
 
 //mongo connectionstring
-//mongodb configuration
-var mongoHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
+//mongodb configuration open shift
+/*var mongoHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
 var mongoPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017;
 var mongoUser = "admin"; //mongodb username
 var mongoPass = "Buz-S9gtgMTm"; //mongodb password
+var mongoDb   = "stationlocator"; //mongodb database name*/
+
+
+//heroku
+var mongoHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
+var mongoPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017;
+var mongoUser = "geezer"; //mongodb username
+var mongoPass = "sabbath66"; //mongodb password
 var mongoDb   = "stationlocator"; //mongodb database name
 
-var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + mongoHost + ':' + mongoPort +  '/' + mongoDb;
 
-if (typeof process.env.OPENSHIFT_MONGODB_DB_HOST === "undefined") {
+
+var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + 'ds243055.mlab.com:43055/stationlocator';
+
+
+
+//OPEN SHIFT CHECK SERVER
+/*if (typeof process.env.OPENSHIFT_MONGODB_DB_HOST === "undefined") {
     
     mongoString = "mongodb://localhost/stationlocator";
-  };
+  };*/
 
 
 
