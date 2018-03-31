@@ -1,14 +1,32 @@
 
-<!-- <div class="row">
-	<div class="col-md-12 col-xs-12">
-				     <button class="btn btn-large btn-primary btn-block" ng-click="getGeoData()" ><h2>Get me Location....</h2></button>
+<div class="row ">
 
-
-				     
+				<div class="col-md-12 col-xs-12">
 
 					
-  </div>
-  </div> -->
+
+					<!-- <div class="container">
+
+						
+					 <img src="img/logo3.png" class="img-responsive img-thumbnail" alt="HEP"/> 
+					</div> -->
+				     
+
+				     
+					 	<div ng-show="loadingData">
+				    <img src="img/Loader3.gif" class="img-responsive img-thumbnail center-block loaderimg" alt="HEP"/> 
+				     <h3 class="text-center XXX ucitbz">Učitavanje baze...</h3>
+				     </div>	
+					 
+				</div>
+
+
+				      
+</div>   
+
+
+
+
   <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-center'}"></toaster-container>
 
 
@@ -18,16 +36,16 @@
 
 
   <div class="btn-group dropdownsirok">
-    <button  class="btn btn-large btn-primary btn-block" dropdown-toggle data-toggle="dropdown" autofocus="true">
-      <h2>Tip postrojenja</h2>
+    <button  class="btn btn-large btn-primary btn-block botungrad" dropdown-toggle data-toggle="dropdown" autofocus="true">
+      <h4>Odaberi Tip postrojenja</h4>
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdownsirok">
-      <li class="itemMargin"><button class="btn btn-large btn-info btn-block" ng-click="getGeoDataByType(1)"><h2>VN</h2></button></li>
-      <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(2)" ><h2>SN</h2></button></li>
-      <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(4)" ><h2>KK</h2></button></li>
-      <li class="itemMargin"><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(5)" ><h2>RS</h2></button></li>
-      <li><button class="btn btn-large btn-info btn-block"   ng-click="getGeoDataByType(3)"><h2>KRO</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block botungrad2" ng-click="getGeoDataByType(1)"><h2>VN</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block botungrad2"   ng-click="getGeoDataByType(2)" ><h2>SN</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block botungrad2"   ng-click="getGeoDataByType(4)" ><h2>KK</h2></button></li>
+      <li class="itemMargin"><button class="btn btn-large btn-info btn-block botungrad2"   ng-click="getGeoDataByType(5)" ><h2>RS</h2></button></li>
+      <li><button class="btn btn-large btn-info btn-block botungrad2"   ng-click="getGeoDataByType(3)"><h2>KRO</h2></button></li>
       
     </ul>
   </div>
@@ -66,7 +84,7 @@
 </form>
   </div>
 
-	 <div class="table-responsive">
+	 <div class="table-responsive gradme">
 	<table class="table table-striped table-responsive table-bordered table-responsive">
 	
 
@@ -93,12 +111,12 @@
 			
 
 			<td>
-				<span class="pull-right">{{stanica.Naziv}}</span>
+				<span class="pull-right">{{stanica.naziv}}</span>
 			</td>
 
 
 			<td>
-				<span class="pull-right">{{stanica.Nivo}} kV</span>
+				<span class="pull-right">{{stanica.regija}} -regija</span>
 			</td>
 
 			
@@ -121,7 +139,7 @@
 
 		<div class="containers text-center" ng-show="stanice.length > 0 && remDiv">
 
-		<button class="btn btn-large btn-primary btn-block" ng-click="incrementLimit()" ng-disabled="disableButton">Učitaj još postrojenja</button>
+		<button class="btn btn-large btn-primary btn-block botungrad" ng-click="incrementLimit()" ng-disabled="disableButton">Učitaj još postrojenja</button>
 
 	</div>
 

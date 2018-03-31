@@ -5,13 +5,21 @@ var myApp = angular.module("myApp",["ui.router",'angularUtils.directives.dirPagi
 myApp.config(function($stateProvider,$urlRouterProvider){
 
 
-		$urlRouterProvider.otherwise("/home");
+		$urlRouterProvider.otherwise("/region");
 
 		$stateProvider.state("home",{
 
 			url:"/home",
 			templateUrl:"templates/home.html",
 			controller:"HomeController"
+
+       });
+
+		$stateProvider.state("region",{
+
+			url:"/region",
+			templateUrl:"templates/region.html",
+			controller:"RegionController"
 
        });
 

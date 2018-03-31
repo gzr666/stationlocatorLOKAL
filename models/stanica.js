@@ -10,14 +10,15 @@ var stanicaSchema = new Schema({
 	Broj:String,
 	"Long":String,
 	Lat:String,
-	Vrsta:String
+	Vrsta:String,
+	regija:String
 
 
 
-},{ collection: 'koordinate' });
+},{ collection: 'koordinateTEST' });
 
 
-var Stanica = mongoose.model("koordinate",stanicaSchema,"koordinate");
+var Stanica = mongoose.model("koordinate",stanicaSchema,"koordinateTEST");
 
 
 module.exports = {shema:stanicaSchema,

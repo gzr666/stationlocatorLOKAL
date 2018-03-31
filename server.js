@@ -114,12 +114,12 @@ var mongoHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
 var mongoPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017;
 var mongoUser = "geezer"; //mongodb username
 var mongoPass = "sabbath66"; //mongodb password
-var mongoDb   = "stationlocator"; //mongodb database name
+var mongoDb   = "tester"; //mongodb database name
 
 
 
-var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + 'ds243055.mlab.com:43055/stationlocator';
-
+//var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + 'ds251747.mlab.com:51747/tester';
+var mongoString = "mongodb://localhost/stationlocator";
 
 
 //OPEN SHIFT CHECK SERVER
@@ -151,10 +151,10 @@ stanicaResource.register(app,"/api/v2/stanice");
 
 
 //cache requests
-app.all('/app.cache', function(req, res){
+/*app.all('/app.cache', function(req, res){
     res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
     res.end(cf);
-})
+})*/
 
 
 app.get('/', function(req, res){
@@ -224,7 +224,7 @@ res.send('500 - Server Error');
 
  });
 */
- app.listen(port, function(){
+ app.listen(3000, function(){
 
 
 

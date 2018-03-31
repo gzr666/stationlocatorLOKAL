@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="" ng-app="myApp" manifest="app.cache">
+<html lang="" ng-app="myApp" >
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-		<link rel="manifest" href="img/manifest.json">
+		
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
@@ -41,69 +41,12 @@
 	</head>
 	<body>
 
-	<img src="img/logo3.png" class="img-responsive img-thumbnail headimg img-rounded hidden-sm hidden-xs" alt="HEP"/> 
-		<div class="container maindiv">
+	<img src="img/ods-logo.svg" class="img-responsive img-thumbnail headimg img-rounded hidden-sm hidden-xs" alt="HEP"/> 
 
-				<div class="row ">
+	 <h3 class="text-center boja1 ">Lociranje postrojenja</h3>
+		<div class="container maindiv ui-view">
 
-				<div class="col-md-12 col-xs-12">
-
-					<!-- <div class="container">
-
-						
-					 <img src="img/logo3.png" class="img-responsive img-thumbnail" alt="HEP"/> 
-					</div> -->
-				     <h1 class="text-center XXX">Lociranje postrojenja</h1>
-
-				     
-					 	<div ng-show="loadingData">
-				    <img src="img/loader.gif" class="img-responsive img-thumbnail center-block" alt="HEP"/> 
-				     <h1 class="text-center XXX">Učitavanje baze...</h1>
-				     </div>	
-					 
-				</div>
-
-
-				      
-				 </div>   
-				 
-				    
-
-				    <!-- <div class="row">
-
-				    		<div class="col-md-12  zz">
-				     <img class="img-responsive img-thumbnail  yy center-block" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSMVXY5YDdnh1UPZhOmoil91IkgoqEDoDZEJl362RKB6rScoy0aTA" alt="test">
-				     </div>
-				     </div> -->
-				    
-			    
-
-
-
-              <!-- <div class="row">
-              		<div class="col-md-12 ">
-              		<div class="text-center">
-				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
-				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
-				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
-				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
-				<a class="btn btn-success" href="https://www.npmjs.com/">Dodan link</a>
-				</div>
-				 </div>
-			 </div> -->
-
-			 <div class="container" ui-view>
-						
-			</div>
-				 
-
-
-				<!-- <div class="row">
-						<div class="col-md-12 col-xs-12 zz">
-				     	<div id="mapyy">
-				     	</div>
-				     </div>
-				 </div>  -->
+				
 
 
 		</div>
@@ -191,6 +134,7 @@
  		<script src="components/angular-ui-router/release/angular-ui-router.js"></script>
  		<script src="app/aplication.js"></script>
  		<script src="controllers/HomeController.js"></script>
+ 		<script src="controllers/RegionController.js"></script>
  		<script src="services/geoService.js"></script>
  		<script src="components/angularUtils-pagination/dirPagination.js"></script>
  		<script src="components/a0-angular-storage/dist/angular-storage.js"></script>

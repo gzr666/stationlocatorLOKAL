@@ -9,27 +9,14 @@
 						$scope.stanice = [];
 						$scope.disableButton = true;
 						$scope.remDiv = true;
-
-
-
-
-			$scope.VN = "VN";			
-
+						$scope.VN = "VN";			
 						$scope.showPostr = false;
-					
-
-						
-
-
-						
-						
-/*
-			 $scope.pop = function(){
-
-					toaster.pop('success', "title", "text");
-
-
-			}	*/	
+									
+			// ako je rootScope.regija 	undefined postavi ga na jedan
+			if($rootScope.regija == undefined)
+			{
+				$rootScope.regija = 1;
+			}
 
 			
 			var limitStep = 10;
@@ -131,7 +118,7 @@
 				$scope.stanice = [];
 
 				var mydata = store.get("geoData");
-				var test = _.where(store.get("geoData"),{'Vrsta':id.toString()});
+				var test = _.where(store.get("geoData"),{'Vrsta':id.toString(),'regija':$rootScope.regija.toString()});
 				angular.copy(test,$scope.stanice);
 
 				console.log(test);
