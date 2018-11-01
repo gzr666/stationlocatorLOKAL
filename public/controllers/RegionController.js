@@ -25,7 +25,7 @@
 			}
 
 
-			$interval(callInterval,5000);
+			//$interval(callInterval,5000);
 
 
 			//odabir regije klik

@@ -91,7 +91,7 @@ app.use(function(req, res, next) {
 });
 
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 1188);
 
 
 //openshift or local
@@ -119,7 +119,7 @@ var mongoDb   = "tester"; //mongodb database name
 
 
 //var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + 'ds251747.mlab.com:51747/tester';
-var mongoString = "mongodb://localhost/stationlocator";
+var mongoString = "mongodb://localhost/stationlocator2";
 
 
 //OPEN SHIFT CHECK SERVER
@@ -224,7 +224,7 @@ res.send('500 - Server Error');
 
  });
 */
- app.listen(3000, function(){
+ app.listen(1188, function(){
 
 
 

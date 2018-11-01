@@ -17,7 +17,7 @@ angular.module("myApp")
 		API_URL = "http://stationlocator-gzr.rhcloud.com/api/stanice/";
 	}*/
 
-	var API_URL = "http://localhost:3000/api/stanice";
+	var API_URL = "http://localhost:1188/api/stanice";
 
 	var wakeUp = function()
 	{

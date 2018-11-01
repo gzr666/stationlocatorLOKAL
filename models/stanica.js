@@ -8,17 +8,17 @@ var stanicaSchema = new Schema({
 	Nivo:String,
 	Tip:String,
 	Broj:String,
-	"Long":String,
+	Lng:String,
 	Lat:String,
 	Vrsta:String,
 	regija:String
 
 
 
-},{ collection: 'koordinateTEST' });
+},{ collection: 'koordinate' });
 
 
-var Stanica = mongoose.model("koordinate",stanicaSchema,"koordinateTEST");
+var Stanica = mongoose.model("koordinate",stanicaSchema,"koordinate");
 
 
 module.exports = {shema:stanicaSchema,
