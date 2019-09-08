@@ -66,6 +66,7 @@
 <div class="row makemargin">
 	<div class="col-md-12 col-xs-12">
 
+		<div  class="well well-sm text-center wellm" ><h4 class="mycolor">Područje: {{odabranoPodrucje}}</h4></div>
 	<div ng-show="showPostr" class="well well-sm text-center wellm" ><h4 class="mycolor">Odabrano: {{tipPostr}}</h4></div>
 				    
 	<!-- <input type="text" ng-model="imeStanice" class="form-control dropdownsirok2" placeholder="Pretrazi stanice..."> -->
@@ -111,12 +112,12 @@
 			
 
 			<td>
-				<span class="pull-right">{{stanica.naziv}}</span>
+				<span class="pull-right">{{stanica.Naziv}}</span>
 			</td>
 
 
 			<td>
-				<span class="pull-right">{{stanica.regija}} -regija</span>
+				<span class="pull-right">{{stanica.Nivo}} kV</span>
 			</td>
 
 			
@@ -143,7 +144,8 @@
 
 	</div>
 
-
+	
+		
 	</div> 
 	<!--<div class="table-responsive">
 
@@ -161,10 +163,11 @@
 
 
 	
-
+	<a  href="#" class="btn btn-danger btn-large btn-block pocmarg">POVRATAK NA POCETAK</a>
 
 
 </div>    
+
 </div>
 
 

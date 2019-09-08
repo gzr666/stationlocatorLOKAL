@@ -119,7 +119,7 @@ var mongoDb   = "tester"; //mongodb database name
 
 
 //var mongoString = 'mongodb://' + mongoUser + ':' + mongoPass + '@' + 'ds251747.mlab.com:51747/tester';
-var mongoString = "mongodb://localhost/stationlocator2";
+var mongoString = "mongodb://localhost/stationlocator";
 
 
 //OPEN SHIFT CHECK SERVER

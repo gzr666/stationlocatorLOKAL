@@ -11,12 +11,25 @@
 						$scope.remDiv = true;
 						$scope.VN = "VN";			
 						$scope.showPostr = false;
-									
+						$scope.odabranoPodrucje = "";
 			// ako je rootScope.regija 	undefined postavi ga na jedan
 			if($rootScope.regija == undefined)
 			{
 				$rootScope.regija = 1;
+				$scope.odabranoPodrucje = "ElektroDalmacija";
 			}
+			if($rootScope.regija == 1)
+			{
+				
+				$scope.odabranoPodrucje = "ElektroDalmacija";
+			}
+
+			if($rootScope.regija == 2)
+			{
+				
+				$scope.odabranoPodrucje = "ElektroSlavonija";
+			}
+
 
 			
 			var limitStep = 10;
@@ -118,10 +131,15 @@
 				$scope.stanice = [];
 
 				var mydata = store.get("geoData");
-				var test = _.where(store.get("geoData"),{'Vrsta':id.toString(),'regija':$rootScope.regija.toString()});
-				angular.copy(test,$scope.stanice);
+				console.log($rootScope.regija);
+				console.log(id);
+				console.log(mydata)
+				var test = _.where(mydata,{'Vrsta':id.toString()});
+				var test2 = _.where(test,{'Regija':$rootScope.regija});
+				console.log(test2);
+				angular.copy(test2,$scope.stanice);
 
-				console.log(test);
+				console.log($scope.stanice);
 
 				if($scope.limit > $scope.stanice.length)
 					{
